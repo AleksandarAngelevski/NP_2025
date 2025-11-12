@@ -131,9 +131,12 @@ class AdNetwork {
         List<Ad> sortedByScore = filtered_ads.stream().sorted((a1,a2)->Double.compare(scores.get(a2),scores.get(a1))).limit(k).collect(Collectors.toList());
         Collections.sort(sortedByScore);
         Collections.reverse(sortedByScore);
-        System.out.println("Top ads for request "+ar.getId()+":");
+        pw.println("Top ads for request "+ar.getId()+":");
+
+
         for(Ad ad: sortedByScore){
-            System.out.println(ad);
+//            System.out.println(ad);
+            pw.println(ad);
         }
         return filtered_ads;
     }
