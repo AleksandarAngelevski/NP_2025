@@ -1,8 +1,13 @@
-# Solutions to auditory exercises and laboratory exercises for the course Advanced programming year 2025/26
+# Solutions to auditory exercises, laboratory exercises and exercises in general for the course Advanced programming year 2025/26
 ## src/laboratoriski
+
+
 ### lab1
+<details>
+
 ### Problem 1
-<details>Треба да се креира апликација за банка која ќе управуваа со сметките на повеќе корисниците и ќе врши трансакции помеѓу нив. Банката работи само со долари.
+<details>
+Треба да се креира апликација за банка која ќе управуваа со сметките на повеќе корисниците и ќе врши трансакции помеѓу нив. Банката работи само со долари.
 
 За потребите на ваквата апликација треба да се напишат класите Account,Transaction и Bank. Класата Account претставува една сметка на еден корисник и треба да ги чува следните податоци:
 
@@ -64,9 +69,10 @@
 
     по што следат податоците за сите корисници.
 
-Провизијата се наплаќа така што на основната сума на трансакцијата се додава вредноста не провизијата и таа сума се одзема од првата сметка (праќачот).
+    Провизијата се наплаќа така што на основната сума на трансакцијата се додава вредноста не провизијата и таа сума се одзема од првата сметка (праќачот).
 
-За сите класи да се напишат соодветни equals и hashCode методи.</details>
+    За сите класи да се напишат соодветни equals и hashCode методи.
+</details>
 
 ### Problem 2
 <details>Да се дефинира интерфејс Movable што ќе ги дефинира основните својства на еден движечки објект:
@@ -163,9 +169,13 @@
         Користете mapToLabels за да ги трансформирате сите доктори во текстуални описи и испечати ги.
         На крај, испечатете ги сите информации за ургентниот центар со користење на методот toString.
 
----</details>
+</details>
+
+</details>
 
 ### lab2
+<details>
+
 ### Problem 1
 <details>Довршете ги методите</details>
 
@@ -187,15 +197,15 @@
     count():int - го браќа бројот на елементи во полето
     elementAt(int idx):T - го враќа елементот на соодветната позиција, доколку нема таков фрла исклучок ArrayIndexOutOfBoundsException (елементите во полето се наоѓаат на позиции [0, count()])
 
-Забелешка: за чување на елементите мора да се користи обична низа Т[] elements, не смее да се користи ArrayList<T> и истата мора да биде декларирана како private.
+    Забелешка: за чување на елементите мора да се користи обична низа Т[] elements, не смее да се користи ArrayList<T> и истата мора да биде декларирана како private.
 
-Дополнително, класата ResizableArray треба да има еден статички метод:
+    Дополнително, класата ResizableArray треба да има еден статички метод:
 
-<T> void copyAll(ResizableArray<? super T> dest, ResizableArray<? extends T> src)
+    <T> void copyAll(ResizableArray<? super T> dest, ResizableArray<? extends T> src)
 
-Овој метод треба да изврши копирање на сите елементи од src во dest (src останува непроменета, dest ги содржи сите елементи кои ги имал од порано и дополнително сите елементи кои ги има во src).
+    Овој метод треба да изврши копирање на сите елементи од src во dest (src останува непроменета, dest ги содржи сите елементи кои ги имал од порано и дополнително сите елементи кои ги има во src).
 
-Следно треба да се напише класа IntegerArray која наследува од класата ResizableArray IntegerArray extends ResizableArray<Integer> и служи за чување на цели броеви. Оваа класа ги нуди следниве методи:
+    Следно треба да се напише класа IntegerArray која наследува од класата ResizableArray IntegerArray extends ResizableArray<Integer> и служи за чување на цели броеви. Оваа класа ги нуди следниве методи:
 
     sum():double - ја враќа сумата на сите елементи во полето
     mean():double - го дава просекот на сите елементи во полето
@@ -247,5 +257,171 @@
 Забелешка: Класата Queue има еден генерички параметар кој се однесува на типот не елементи кои се чуваат во редот.
 
 Важно: Не смее да се користат готови податочни структури како ArrayList или LinkedList, за да се имплементира класата Queue.</details>
+</details>
 
 ## src/auditoriski
+
+## src/zadachi_za_vezhbanje (execises_for_midterms)
+<details>
+
+### Zad1
+<details>
+
+Квалификациска за прв колоквиум
+
+Да се дефинира класа ShapesApplication во која се чуваат податоци за повеќе прозорци на кои се исцртуваат геометриски слики во форма на квадрат.
+
+За класата да се дефинира:
+
+    ShapesApplication() - конструктор
+    int readCanvases (InputStream inputStream) - метод којшто од влезен поток на податоци ќе прочита информации за повеќе прозорци на кои се исцртуваат квадрати. Во секој ред од потокот е дадена информација за еден прозорец во формат: canvas_id size_1 size_2 size_3 …. size_n, каде што canvas_id е ИД-то на прозорецот, а после него следуваат големините на страните на квадратите што се исцртуваат во прозорецот. Методот треба да врати цел број што означува колку квадрати за сите прозорци се успешно прочитани.
+    void printLargestCanvasTo (OutputStream outputStream) - метод којшто на излезен поток ќе го испечати прозорецот чии квадрати имаат најголем периметар. Печатењето да се изврши во форматот canvas_id squares_count total_squares_perimeter.
+____
+    INPUT:
+    364fbe94 24 30 22 33 32 30 37 18 29 27 33 21 27 26
+    0469e20f 26 14 14 28 37 14 36 30
+    33f2c7c0 18 12 14 38 28 26 17 22 33 36 28 33 36 38
+
+    RESULT:
+    ===READING SQUARES FROM INPUT STREAM===
+    36
+    ===PRINTING LARGEST CANVAS TO OUTPUT STREAM===
+    364fbe94 14 1556
+
+</details>
+
+### Zad2
+<details>
+
+    Прв колоквиум
+    
+    Да се дефинира класа ShapesApplication чување на податоци за повеќе прозорци на кои и се сцртуваат геометриски слики во различна форма (квадрати и кругови)..
+    
+    За класата да се дефинира:
+
+        ShapesApplication(double maxArea) - конструктор, каде maxArea е најголемата дозволена плоштина на секоја форма поединечно, која може да биде исцртана на прозорците.
+        void readCanvases (InputStream inputStream) - метод којшто од влезен поток на податоци ќе прочита информации за повеќе прозорци на кои се исцртуваат различните геометриски слики. Во секој ред се наоѓа информација за еден прозорец во формат: canvas_id type_1 size_1 type_2 size_2 type_3 size_3 …. type_n size_n каде што canvas_id е ИД-то на прозорецот, a после него следуваат информации за секоја форма во прозорецот. Секоја форма е означена со карактер што го означува типот на геометриската слика (S = square, C = circle) и со големината на страната на квадратот, односно радиусот на кругот.
+        При додавањето на геометриските слики на прозорецот треба да се спречи креирање и додавање на прозорец во кој има форма што има плоштина поголема од максимално дозволената. Како механизам за спречување треба да се користи исклучок од тип IrregularCanvasException (фрлањето на исклучокот не треба да го попречи вчитувањето на останатите прозорци и геометриски слики. Да се испечати порака Canvas [canvas_id] has a shape with area larger than [max_area].
+        void printCanvases (OutputStream os) - метод којшто на излезен поток ќе ги испечати информациите за сите прозорци во апликацијата. Прозорците да се сортирани во опаѓачки редослед според сумата на плоштините на геометриските слики во нив. Секој прозорец да е испечатен во следниот формат: ID total_shapes total_circles total_squares min_area max_area average_area.
+
+    За вредноста на PI користете ja константата Math.PI. За постигнување на точност со тест примерите користете double за сите децимални променливи.
+
+-----
+
+    Define a class ShapesApplication whre you'll keep information about multiple windows on which geometric images (in different shape - square and circle) are drawn.
+    
+    For the class you need to define and implement:
+
+        ShapesApplication(double maxArea) - constructor with one argument which represents the maximum allowed area of a shape that can be drawn on the windows.
+        void readCanvases (InputStream inputStream) - method that will read info about multiple windows from input stream. Each line of the data stream represents one window and it's in the format canvas_id type_1 size_1 type_2 size_2 type_3 size_3 …. type_n size_n where canvas_id is the ID of the window and after the ID there are unknown number of pairs of data for the shapes. Each pair has its type (character S = square, C = circle) and the side of the side of the square or the size of the radius of the circle.
+        When adding the geometric images on the window, the creation and addition of a window which contains a shape with area greater than the maximum area, should not be allowed. This should be done via exception of type InvalidCanvasException. Throwing an exception of this type should not stop the reading of the data from the input stream. When catching the exception, the following message should be printed: Canvas [canvas_id] has a shape with area larger than [max_area].
+        void printCanvases(OutputStream os) - method that will print to output stream the information for all the windows in the application. The windows should be sorted in descending order by the sum of the areas of the geometric shapes in them. Each window should be printed in the following format: ID total_shapes total_circles total_squares min_area max_area average_area.
+
+    For the value of PI use Math.PI. Use double for better precision of the decimal numbers.
+___
+    INPUT
+    0cc31e47 C 27 C 13 C 29 C 15 C 22
+    5960017f C 30 S 15 S 588 C 25 C 14 S 14 S 17 C 19
+    8ed50a65 C 29 S 12 C 13 S 30 C 25 S 11
+    201c295e C 27 C 13 C 14 C 11 S 18 C 12
+    184ef1d4 S 28 S 26 S 2001 S 28 C 30 C 16 S 18
+    c4b48d9f S 26 C 18 C 18 S 16 S 12 C 29 S 19
+    5e28f402 C 24 C 28 C 14 C 25 S 11 S 22 S 10 S 19 S 20 S 11 C 29
+    91a5b09b C 30 S 10 S 28 S 10 S 18 C 28 S 14 S 10 S 30 C 21 C 24
+    36e77dad C 29 S 11 S 25 S 30 C 21 C 17 S 400 S 30 S 23
+    13343cb0 S 21 C 29 C 14 C 30 C 12
+    
+    RESULT
+    ===READING CANVASES AND SHAPES FROM INPUT STREAM===
+    Canvas 5960017f has a shape with area larger than 10000.00
+    Canvas 184ef1d4 has a shape with area larger than 10000.00
+    Canvas 36e77dad has a shape with area larger than 10000.00
+    ===PRINTING SORTED CANVASES TO OUTPUT STREAM===
+    5e28f402 11 5 6 100.00 2642.08 1007.35
+    91a5b09b 11 4 7 100.00 2827.43 999.04
+    0cc31e47 5 5 0 530.93 2642.08 1538.12
+    13343cb0 5 4 1 441.00 2827.43 1395.73
+    8ed50a65 6 3 3 121.00 2642.08 1050.25
+    c4b48d9f 7 3 4 144.00 2642.08 873.55
+    201c295e 6 5 1 324.00 2290.22 765.57
+
+
+</details>
+
+### Zad3
+<details>
+
+    Прв колоквиум (+ composite design pattern)
+
+    Потребно е да се дефинира апликација за едноставен датотечен систем во којшто ќе се чуваат објекти коишто репрезентираат фајлови/датотеки (објекти коишто го имплементираат интерфејсот IFile).
+
+    Да се декларира интерфејсот IFile со соодветни методи, така што секој фајл/датотека ќе ги има следните карактеристики:
+
+    може да се пристапи до неговото име (String getFileName())
+    може да се добие неговата големина во long (long getFileSize())
+    може да се добие String репрезентација на фајлот (String getFileInfo(???))
+    може да се сортира датотеката доколку е колекција од датотеки според големините на датотеките кои ги содржи (void sortBySize())
+    може да се пресмета големината на најголемата обична датотека во датотеката (findLargestFile ())
+    
+    Постојат два типа на фајлови: File (обична датотека) и Folder (директориум/фолдер). Потребно е овие две класи да го имплементираат интерфејсот IFile.
+    
+    За еден File се чуваат информации за неговото име и големина (во long).
+    
+    Во класата Folder се чуваат исти информации како и за File, a дополнително се чува и листа од фајлови (и обични и директориуми). За оваа класа да се имплементираат методите:
+
+    void addFile (IFile file) - метод за додавање на било каква датотека во листата од датотеки.
+    Доколку веќе постои датотека со исто име како името на датотеката што се додава како аргумент на методот, да се фрли исклучок од тип FileNameExistsException во којшто се проследува името кое веќе постои.
+
+    И во двете класи да се имплементираат методите коишто се декларирани во интерфејсот IFile. Да се запази на следните фактори:
+
+    големината на еден Folder е сума од големините на сите датотеки (обични или директориуми) коишто се наоѓаат во него.
+    при генерирање на String репрезентација на директориумите, датотеките и поддиректориумите во тој директориум да се вовлечени со таб ("\t").
+    String репрезентацијата на една обична датотека е File name [името на фајлот со 10 места порамнето на десно] File size: [големината на фајлот со 10 места пораменета на десно ]
+    String репрезентацијата на еден директориум е Folder name [името на директориумот со 10 места порамнето на десно] Folder size: [големината на директориумот со 10 места пораменета на десно ]
+    возможно е сортирање само во рамки на директориум, каде што сите датотеки во тој директориум потребно е да се сортираат според големина во растечки редослед.
+    методот getLargestFile() треба да ја врати големината на најголемата обична датотека во рамки на датотеката каде што е повикан.
+    кога се повикува методот sortBySize() кај директориум истиот треба да се повика и за сите негови подиректориуми
+
+    Да се дефинира класа FileSystem во која што ќе се чува само еден директориум (rootDirectory). За класата да се имплементираат:
+
+    default конструктор FileSystem()
+    void addFile (IFile file) - метод за додавање на било каква датотека во root директориумот.
+    long findLargestFile () - метод којшто ја враќа големината на најголемата (обична) датотека во root директориумот.
+    void sortBySize() - метод којшто ги сортира датотеките во root директориумот ( и обични и директориуми) според нивната големина во root директориумот во растечки редослед.
+
+______
+
+    INPUT:
+    test
+    3
+    0
+    test 12000
+    0
+    test 123
+    0
+    test_1 1070
+    RESULT:
+    ===READING FILES FROM INPUT===
+    There is already a file named test in the folder test
+    ===PRINTING FILE SYSTEM INFO===
+    Folder name:       root Folder size:      13070
+    Folder name:       test Folder size:      13070
+    File name:       test File size:      12000
+    File name:     test_1 File size:       1070
+    
+    ===PRINTING FILE SYSTEM INFO AFTER SORTING===
+    Folder name:       root Folder size:      13070
+    Folder name:       test Folder size:      13070
+    File name:     test_1 File size:       1070
+    File name:       test File size:      12000
+    
+    ===PRINTING THE SIZE OF THE LARGEST FILE IN THE FILE SYSTEM===
+    12000    
+
+</details>
+
+</details>
+
+
+
+
