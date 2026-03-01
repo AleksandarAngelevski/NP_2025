@@ -200,7 +200,7 @@ public class Zad3 {
 
     public static void main(String[] args)  {
 
-        //file reading from input
+        //file reading from input.txt
 
         Scanner sc = new Scanner (System.in);
 
